@@ -1,21 +1,32 @@
 "use client"
 
+// Hooks do React
 import { useState, useEffect } from "react"
+
+// Componentes do Next.js
 import Link from "next/link"
+
+// Componentes da UI
 import { Button } from "@/components/ui/button"
+
+// Ícones
 import { Home, BookOpen } from "lucide-react"
-import ListaProcessosSimples from "@/components/ListaProcessosSimples"
-import GraficoGanttSimples from "@/components/GraficoGanttSimples"
-import ControlesSimulacaoSimples from "@/components/ControlesSimulacaoSimples"
-import ExplicacaoSimples from "@/components/ExplicacaoSimples"
-import VisualizacaoSorteioSimples from "@/components/VisualizacaoSorteioSimples"
-import ResultadosSimples from "@/components/ResultadosSimples"
-import FormularioNovoProcesso from "@/components/FormularioNovoProcesso"
-import ExplicacaoProcessos from "@/components/ExplicacaoProcessos"
-import ExplicacaoResultados from "@/components/ExplicacaoResultados"
-import ExplicacaoLinhaTempo from "@/components/ExplicacaoLinhaTempo"
-import AjudaInterativa from "@/components/AjudaInterativa"
-import type { Processo, RegistroExecucao } from "@/types/tipos"
+
+// Componentes do simulador
+import ListaProcessosSimples from "@/components/lista-processos-simples"
+import GraficoGanttSimples from "@/components/grafico-gantt-simples"
+import ControlesSimulacaoSimples from "@/components/controles-simulacao-simples"
+import ExplicacaoSimples from "@/components/explicacao-simples"
+import VisualizacaoSorteioSimples from "@/components/visualizacao-sorteio-simples"
+import ResultadosSimples from "@/components/resultados-simples"
+import FormularioNovoProcesso from "@/components/formulario-novo-processo"
+import ExplicacaoProcessos from "@/components/explicacao-processos"
+import ExplicacaoResultados from "@/components/explicacao-resultados"
+import ExplicacaoLinhaTempo from "@/components/explicacao-linha-tempo"
+import AjudaInterativa from "@/components/ajuda-interativa"
+
+// Tipos
+import type { Processo, RegistroExecucao } from "@/app/tipos"
 
 export default function Simulador() {
   // Estado para armazenar a lista de processos

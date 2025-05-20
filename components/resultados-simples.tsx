@@ -1,7 +1,7 @@
 "use client"
 
 import type { Processo } from "@/types/tipos"
-import { Cpu, HardDrive, Clock, BarChart } from "lucide-react"
+import { Cpu, HardDrive, Clock } from "lucide-react"
 
 interface PropsResultados {
   processosFinalizados: Processo[]
@@ -66,14 +66,16 @@ export default function ResultadosSimples({ processosFinalizados }: PropsResulta
             </tr>
           </thead>
           <tbody>
-            {processosFinalizados.map((processo) => {
+            {processosFinalizados.map((processo, index) => {
               // Gerar cor para o processo
-              const index = processosFinalizados.findIndex((p) => p.id === processo.id)
               const matiz = (index * 137) % 360
               const cor = `hsl(${matiz}, 70%, 60%)`
 
+              // Criar um ID único para o processo
+              const idUnico = `${processo.id}-${index}`
+
               return (
-                <tr key={processo.id} className="border-t hover:bg-gray-50">
+                <tr key={idUnico} className="border-t hover:bg-gray-50">
                   <td className="py-2 px-4">
                     <div className="flex items-center">
                       <div className="w-4 h-4 rounded-full mr-2" style={{ backgroundColor: cor }}></div>
@@ -137,12 +139,6 @@ export default function ResultadosSimples({ processosFinalizados }: PropsResulta
                   <span className="text-sm">Total de programas:</span>
                   <span className="font-bold">{processosCPU.length}</span>
                 </div>
-                <div className="mt-2 flex items-center">
-                  <BarChart className="h-4 w-4 mr-1 text-blue-600" />
-                  <span className="text-xs text-blue-600">
-                    Programas de CPU geralmente são mais previsíveis em seu tempo de execução
-                  </span>
-                </div>
               </div>
             </div>
           )}
@@ -165,12 +161,6 @@ export default function ResultadosSimples({ processosFinalizados }: PropsResulta
                 <div className="flex justify-between items-center">
                   <span className="text-sm">Total de programas:</span>
                   <span className="font-bold">{processosIO.length}</span>
-                </div>
-                <div className="mt-2 flex items-center">
-                  <BarChart className="h-4 w-4 mr-1 text-green-600" />
-                  <span className="text-xs text-green-600">
-                    Programas de I/O geralmente levam mais tempo devido às operações de entrada/saída
-                  </span>
                 </div>
               </div>
             </div>
