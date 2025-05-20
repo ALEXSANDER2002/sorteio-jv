@@ -1,6 +1,9 @@
+'use client'
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Cpu, HardDrive, Clock, Award, BookOpen, Users, BarChart } from "lucide-react"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -167,12 +170,15 @@ export default function Home() {
               <h3 className="text-xl font-bold text-gray-800">Prévia do Simulador</h3>
             </div>
             <div className="p-2">
-              <img
+              <Image
                 src="/simulador-preview.png"
                 alt="Prévia do Simulador"
+                width={1200}
+                height={675}
                 className="w-full h-auto rounded-lg shadow-sm"
                 onError={(e) => {
-                  e.currentTarget.src = "/lottery-scheduling-simulator.png"
+                  const target = e.target as HTMLImageElement
+                  target.src = "/lottery-scheduling-simulator.png"
                 }}
               />
             </div>
@@ -192,62 +198,50 @@ export default function Home() {
             {/* Alex */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               <div className="h-64 bg-gradient-to-br from-blue-400 to-blue-600 relative">
-                <img
+                <Image
                   src="/alex-foto.png"
                   alt="Alex"
-                  className="w-full h-full object-cover mix-blend-overlay"
+                  fill
+                  className="object-cover mix-blend-overlay"
                   onError={(e) => {
-                    e.currentTarget.src = "/diverse-student-profiles.png"
+                    const target = e.target as HTMLImageElement
+                    target.src = "/diverse-student-profiles.png"
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <h3 className="text-2xl font-bold">Alex</h3>
-                  <p className="text-blue-100">Desenvolvedor Backend</p>
-                </div>
               </div>
               <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Alex</h3>
                 <p className="text-gray-600">
-                  Responsável pelo desenvolvimento do algoritmo de escalonamento e pela lógica de simulação.
+                  Desenvolvedor Full Stack e entusiasta de sistemas operacionais
                 </p>
-                <div className="mt-4 flex gap-2">
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Algoritmos</span>
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">React</span>
-                </div>
               </div>
             </div>
 
             {/* Kalleb */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-64 bg-gradient-to-br from-purple-400 to-purple-600 relative">
-                <img
+              <div className="h-64 bg-gradient-to-br from-green-400 to-green-600 relative">
+                <Image
                   src="/kalleb-foto.png"
                   alt="Kalleb"
-                  className="w-full h-full object-cover mix-blend-overlay"
+                  fill
+                  className="object-cover mix-blend-overlay"
                   onError={(e) => {
-                    e.currentTarget.src = "/diverse-student-profiles.png"
+                    const target = e.target as HTMLImageElement
+                    target.src = "/diverse-student-profiles.png"
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <h3 className="text-2xl font-bold">Kalleb</h3>
-                  <p className="text-purple-100">Desenvolvedor Frontend</p>
-                </div>
               </div>
               <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Kalleb</h3>
                 <p className="text-gray-600">
-                  Responsável pelo design da interface, visualizações interativas e experiência do usuário.
+                  Especialista em UI/UX e desenvolvimento frontend
                 </p>
-                <div className="mt-4 flex gap-2">
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">UI/UX</span>
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Tailwind</span>
-                </div>
               </div>
             </div>
 
             {/* Murilo */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-64 bg-gradient-to-br from-green-400 to-green-600 relative">
+              <div className="h-64 bg-gradient-to-br from-purple-400 to-purple-600 relative">
                 <img
                   src="/murilo-foto.png"
                   alt="Murilo"
@@ -259,7 +253,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                   <h3 className="text-2xl font-bold">Murilo</h3>
-                  <p className="text-green-100">Documentação e Testes</p>
+                  <p className="text-purple-100">Documentação e Testes</p>
                 </div>
               </div>
               <div className="p-6">
@@ -267,8 +261,8 @@ export default function Home() {
                   Responsável pela documentação, testes e garantia de qualidade do simulador.
                 </p>
                 <div className="mt-4 flex gap-2">
-                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Documentação</span>
-                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Testes</span>
+                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Documentação</span>
+                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Testes</span>
                 </div>
               </div>
             </div>
