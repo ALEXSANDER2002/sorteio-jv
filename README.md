@@ -27,7 +27,7 @@ lottery-scheduling/
 ├── app/
 │   ├── components/         # Componentes React reutilizáveis
 │   ├── tipos.d.ts         # Definições de tipos TypeScript
-│   ├── pagina-inicial.tsx # Página inicial
+│   ├── page.tsx         # Página inicial
 │   └── simulador/         # Página do simulador
 ├── components/
 │   ├── ui/               # Componentes de interface do usuário

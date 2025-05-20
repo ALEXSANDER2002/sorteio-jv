@@ -25,43 +25,13 @@ import {
 } from "lucide-react"
 import type { Feature, TeamMember } from './types'
 import { SyntheticEvent } from 'react'
-
-// Componente para o cabeçalho da página
-function HeroSection() {
-  return (
-    <div className="relative overflow-hidden bg-blue-600 text-white">
-      {/* Fundo com padrão de circuitos */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('/circuit-pattern.png')] bg-repeat opacity-20"></div>
-      </div>
-
-      {/* Conteúdo principal do cabeçalho */}
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Simulador de Escalonamento por Sorteio
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100">
-            Uma implementação interativa do algoritmo Lottery Scheduling para visualizar como os processos são
-            gerenciados em sistemas operacionais
-          </p>
-          <Link href="/simulador">
-            <Button
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105"
-            >
-              Iniciar Simulação
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      {/* Gradiente na parte inferior */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
-    </div>
-  )
-}
+import SecaoHeroi from "./components/SecaoHeroi"
+import SecaoCaracteristicasAlgoritmo from "./components/SecaoCaracteristicasAlgoritmo"
+import SecaoRecursosSimulador from "./components/SecaoRecursosSimulador"
+import SecaoPreviaSimulador from "./components/SecaoPreviaSimulador"
+import SecaoEquipe from "./components/SecaoEquipe"
+import SecaoUniversidade from "./components/SecaoUniversidade"
+import Rodape from "./components/Rodape"
 
 // Componente para a seção de características do algoritmo
 function AlgorithmFeatures() {
@@ -312,35 +282,19 @@ function UniversitySection() {
   )
 }
 
-// Componente para o rodapé
-function Footer() {
-  return (
-    <footer className="bg-gray-900 text-white py-8">
-      <div className="container mx-auto px-4">
-        <div className="text-center">
-          <p className="mb-2">© 2023 Simulador de Escalonamento por Sorteio - Todos os direitos reservados</p>
-          <p className="text-gray-400 text-sm">
-            Desenvolvido por Alex e Kalleb | UNIFESSPA - Engenharia da Computação
-          </p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
 // Componente principal da página
-export default function Home() {
+export default function PaginaInicial() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
-      <HeroSection />
+      <SecaoHeroi />
       <div className="container mx-auto px-4 py-12">
-        <AlgorithmFeatures />
-        <SimulatorFeatures />
-        <SimulatorPreview />
-        <TeamSection />
-        <UniversitySection />
+        <SecaoCaracteristicasAlgoritmo />
+        <SecaoRecursosSimulador />
+        <SecaoPreviaSimulador />
+        <SecaoEquipe />
+        <SecaoUniversidade />
       </div>
-      <Footer />
+      <Rodape />
     </main>
   )
 }
