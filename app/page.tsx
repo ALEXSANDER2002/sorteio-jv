@@ -23,13 +23,11 @@ import {
   Linkedin,
   Mail,
 } from "lucide-react"
-import type { Feature, TeamMember } from './types'
+import type { Feature } from './types'
 import { SyntheticEvent } from 'react'
 import SecaoHeroi from "./components/SecaoHeroi"
 import SecaoCaracteristicasAlgoritmo from "./components/SecaoCaracteristicasAlgoritmo"
 import SecaoRecursosSimulador from "./components/SecaoRecursosSimulador"
-import SecaoPreviaSimulador from "./components/SecaoPreviaSimulador"
-import SecaoEquipe from "./components/SecaoEquipe"
 import SecaoUniversidade from "./components/SecaoUniversidade"
 import Rodape from "./components/Rodape"
 
@@ -150,90 +148,6 @@ function SimulatorFeatures() {
   )
 }
 
-// Componente para a seção de preview do simulador
-function SimulatorPreview() {
-  return (
-    <section className="mb-16">
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-        <div className="p-4 bg-gray-50 border-b border-gray-200">
-          <h3 className="text-xl font-bold text-gray-800">Prévia do Simulador</h3>
-        </div>
-        <div className="p-2">
-          <Image
-            src="/simulador-preview.png"
-            alt="Prévia do Simulador"
-            width={1200}
-            height={675}
-            className="w-full h-auto rounded-lg shadow-sm"
-            onError={(e: SyntheticEvent<HTMLImageElement>) => {
-              const target = e.target as HTMLImageElement
-              target.src = "/lottery-scheduling-simulator.png"
-            }}
-          />
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Componente para a seção da equipe
-function TeamSection() {
-  const team: TeamMember[] = [
-    {
-      name: "Alexsander",
-      role: "Desenvolvedor Full Stack",
-      image: "/team/alexsander.jpg",
-      gradient: "from-blue-500 to-blue-600",
-    },
-    {
-      name: "João",
-      role: "Desenvolvedor Backend",
-      image: "/team/joao.jpg",
-      gradient: "from-green-500 to-green-600",
-    },
-    {
-      name: "Maria",
-      role: "Desenvolvedora Frontend",
-      image: "/team/maria.jpg",
-      gradient: "from-purple-500 to-purple-600",
-    },
-  ]
-
-  return (
-    <section className="mb-16">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-blue-700 mb-2">Equipe de Desenvolvimento</h2>
-        <p className="text-gray-600 max-w-3xl mx-auto">
-          Conheça os estudantes responsáveis pelo desenvolvimento deste simulador educacional
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {team.map((member, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <div className={`h-64 bg-gradient-to-br ${member.gradient} relative`}>
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className="object-cover mix-blend-overlay"
-                onError={(e: SyntheticEvent<HTMLImageElement>) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = "/placeholder.png"
-                }}
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{member.name}</h3>
-              <p className="text-gray-600">{member.role}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
 // Componente para a seção da universidade
 function UniversitySection() {
   return (
@@ -248,33 +162,40 @@ function UniversitySection() {
             className="max-w-[200px] max-h-[200px]"
             onError={(e: SyntheticEvent<HTMLImageElement>) => {
               const target = e.target as HTMLImageElement
-              target.src = "/university-emblem.png"
+              target.src = "/placeholder.png"
             }}
           />
         </div>
         <div className="md:w-2/3 p-8">
-          <h2 className="text-2xl font-bold mb-4">Universidade Federal do Sul e Sudeste do Pará (UNIFESSPA)</h2>
+          <h2 className="text-2xl font-bold mb-4">Universidade Federal do Sul e Sudeste do Pará</h2>
           <p className="mb-4">
-            Este projeto foi desenvolvido como parte da disciplina de Sistemas Operacionais, sob orientação do Prof.
-            João Victor.
+            Este projeto foi desenvolvido como parte do curso de Sistemas Operacionais,
+            com o objetivo de criar uma ferramenta educacional interativa para o estudo
+            de algoritmos de escalonamento.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div>
-              <h3 className="font-bold mb-1">Disciplina</h3>
-              <p>Sistemas Operacionais - 2023/2</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-1">Professor</h3>
-              <p>Prof. João Victor</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-1">Curso</h3>
-              <p>Engenharia da Computação</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-1">Semestre</h3>
-              <p>2023/2</p>
-            </div>
+          <div className="flex gap-4">
+            <a
+              href="https://unifesspa.edu.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-200 transition-colors"
+            >
+              <Building2 className="h-6 w-6" />
+            </a>
+            <a
+              href="https://github.com/unifesspa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-200 transition-colors"
+            >
+              <Github className="h-6 w-6" />
+            </a>
+            <a
+              href="mailto:contato@unifesspa.edu.br"
+              className="text-white hover:text-blue-200 transition-colors"
+            >
+              <Mail className="h-6 w-6" />
+            </a>
           </div>
         </div>
       </div>
@@ -285,15 +206,11 @@ function UniversitySection() {
 // Componente principal da página
 export default function PaginaInicial() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
+    <main className="min-h-screen bg-gray-50">
       <SecaoHeroi />
-      <div className="container mx-auto px-4 py-12">
-        <SecaoCaracteristicasAlgoritmo />
-        <SecaoRecursosSimulador />
-        <SecaoPreviaSimulador />
-        <SecaoEquipe />
-        <SecaoUniversidade />
-      </div>
+      <SecaoCaracteristicasAlgoritmo />
+      <SecaoRecursosSimulador />
+      <SecaoUniversidade />
       <Rodape />
     </main>
   )
