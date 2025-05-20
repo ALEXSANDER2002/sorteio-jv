@@ -125,6 +125,7 @@ npm run dev
 
 - Alexsander
 - Kalleb
+- Murilo
 
 ## 📄 Licença
 
