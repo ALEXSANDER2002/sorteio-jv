@@ -28,7 +28,6 @@ import { SyntheticEvent } from 'react'
 import SecaoHeroi from "./components/SecaoHeroi"
 import SecaoCaracteristicasAlgoritmo from "./components/SecaoCaracteristicasAlgoritmo"
 import SecaoRecursosSimulador from "./components/SecaoRecursosSimulador"
-import SecaoUniversidade from "./components/SecaoUniversidade"
 import Rodape from "./components/Rodape"
 
 // Componente para a seção de características do algoritmo
@@ -148,61 +147,6 @@ function SimulatorFeatures() {
   )
 }
 
-// Componente para a seção da universidade
-function UniversitySection() {
-  return (
-    <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl shadow-lg overflow-hidden">
-      <div className="md:flex">
-        <div className="md:w-1/3 p-8 flex items-center justify-center bg-blue-900/30">
-          <Image
-            src="/unifesspa-logo.png"
-            alt="Logo da UNIFESSPA"
-            width={200}
-            height={200}
-            className="max-w-[200px] max-h-[200px]"
-            onError={(e: SyntheticEvent<HTMLImageElement>) => {
-              const target = e.target as HTMLImageElement
-              target.src = "/placeholder.png"
-            }}
-          />
-        </div>
-        <div className="md:w-2/3 p-8">
-          <h2 className="text-2xl font-bold mb-4">Universidade Federal do Sul e Sudeste do Pará</h2>
-          <p className="mb-4">
-            Este projeto foi desenvolvido como parte do curso de Sistemas Operacionais,
-            com o objetivo de criar uma ferramenta educacional interativa para o estudo
-            de algoritmos de escalonamento.
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="https://unifesspa.edu.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-200 transition-colors"
-            >
-              <Building2 className="h-6 w-6" />
-            </a>
-            <a
-              href="https://github.com/unifesspa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-200 transition-colors"
-            >
-              <Github className="h-6 w-6" />
-            </a>
-            <a
-              href="mailto:contato@unifesspa.edu.br"
-              className="text-white hover:text-blue-200 transition-colors"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 // Componente principal da página
 export default function PaginaInicial() {
   return (
@@ -210,7 +154,6 @@ export default function PaginaInicial() {
       <SecaoHeroi />
       <SecaoCaracteristicasAlgoritmo />
       <SecaoRecursosSimulador />
-      <SecaoUniversidade />
       <Rodape />
     </main>
   )
